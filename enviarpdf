@@ -1,0 +1,23 @@
+<?php 
+require("PHPMailer/class.phpmailer.php"); 
+$mail = new phpMailer(); 
+$mail->IsSMTP(); // telling the class to use SMTP 
+$mail->Host = "smtp.gmail.com"; // SMTP server 
+$mail->From = "webmaster@publistika.com"; 
+$mail->AddAddress("paulina_151090@hotmail.com"); 
+ 
+$mail->Subject = "first mailing"; 
+$mail->Body = "hi ! \n\n this is First mailing I made 
+myself with phpMailer !"; 
+$mail->WordWrap = 50; 
+ 
+if(!$mail->Send()) 
+{ 
+ echo "Message was not sent"; 
+ echo "Mailer Error: " . $mail->ErrorInfo; 
+} 
+else 
+{ 
+ echo "Message has been sent"; 
+} 
+?> 
